@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="styles.css">
+<html>
+	<head>
+		<style>
+			.center {
+			  display: block;
+			  margin-left: auto;
+			  margin-right: auto;
+			  width: 1800;
+			  height: 790;
+			}
+			#img3{
+				height: 80;
+				vertical-align:middle;
+				margin-top:-1px;
+			}
+			
+			.button {
+				font-size:30px; 
+				color:white; 
+				background-color:red; 
+				margin-left:390px; 
+				border-radius: 30px; 
+				padding: 15px;
+				opacity:0.9;
+			}
+			.button:hover{
+			transform: scale(1.2);
+			}
+			
+		</style>
+	</head>
+	
+	<body>
+		<label class="switch">
+		<input type="checkbox" checked onclick="myFunction()">
+		<span class="slider round"></span>
+		</label>
+		<ul>
+	  <li id=buttons><a style= "background-color:transparent;  text-align:center; font-size:60; font-family:Verdana;">GroupB </a></li>
+	  <li id=buttons><a style="margin-top:30; margin-left:450" class="active" href="landingalt.html">&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+	  <li><a style="margin-top:30; " href="Reservealt.html">Reserve&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+	  <li><a style="margin-top:30; " href="contact.html">Contact us&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+	  <li>	<label class="switch">
+	  <li id=li2><a style="margin-top:30; " href="Accountalt.html"><img src="../images/account2.png" style="height:30;"></a></li>
+		</ul>
+
+
+	<div id="img3">
+		<img src="../images/blue2.jpg" alt="alt-text" class="center"/>
+		
+	</div>
+	<span>
+	<p style="margin-left:400px; color:white; margin-top:170px; font-size:40; font-family:Verdana;" >
+	<strong>Have your laundry <br>  done at a set <br>time </strong></p> 
+	<p style="margin-left:400px; font-size:16; color:white; font-family:Verdana">Reserve now and pick your desired time</p>
+	</span>
+
+	
+
+
+	<button class="button"
+	type="button" onclick="location.href='Reservealt.html'">
+	Schedule your weekly wash</button>
+	
+	<script>
+	function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+	</script>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<footer style="margin-left: 800px;">
+		  <p>Author: Thurein, Toki, Justin<br>
+		  <a href="bmccgroupb@gmail.com">BMCCGroupB@gmail.com</a></p>
+		</footer>
+	</body>
+</html>
+<!--<button onclick="myFunction()">Toggle dark mode</button> -->
