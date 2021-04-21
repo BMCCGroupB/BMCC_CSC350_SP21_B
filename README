@@ -1,1 +1,6 @@
-Thurein, Toki, Justin
+Project by Thurein, Toki, Justin
+
+To load the website:
+Create a MYSQL DB with localhost, root, no password   with DB mydb
+Create an account table, with columns email, password, and apt
+Fill in the table as desired and log in with that account to the website
