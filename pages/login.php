@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="styles.css">
-<script type="text/javascript" src="script.js"></script>
+<link rel="stylesheet" href="templates/styles.css">
+<script type="text/javascript" src="templates/script.js"></script>
 <html>
 	<head>
 		<style>
@@ -25,7 +25,7 @@
 				padding: 1px;
 			}
 
-			#email {				
+			#user {				
 			border-radius: 10px;
 			border: 2px solid black;
 			padding: 15px; 
@@ -82,11 +82,11 @@
 		<h1> Please sign in </h1>
 		 
 		 <div>
-		<form style="color:black"  action="dbc.php">
+		<form style="color:black"  action="authenticate.php">
 		<br><br><br>
-		  <label id="label" for="email">&nbsp;<strong>Email:</strong></label>
+		  <label id="label" for="user">&nbsp;<strong>Username:</strong></label>
 
-		  <input type="text" id="email" name="email"><br><br>
+		  <input type="text" id="user" name="user"><br><br>
 		  <label for="password"><strong>Password:</strong></label>
 		  <input type="password" id="password" name="password"><br><br>
 

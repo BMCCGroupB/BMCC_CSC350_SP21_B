@@ -1,214 +1,127 @@
-<link rel="stylesheet" href="styles.css">
-<script type="text/javascript" src="script.js"></script>
-<?php include "templates/header.php"?>
+	<link rel="stylesheet" href="templates/calendar.css">
+	<link rel="stylesheet" href="templates/styles.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<?php include "templates/header.php"; include "templates/dbconfig.php";
+
+?>
 <html>
 	<head>
-	<script>
-	function changeMessage(c)
-	{
-		if (c == 'day1') 
-			document.getElementById("message").innerHTML = 
-			"Monday: 12:00AM - 3:00AM <br><br> Monday: 3:00AM - 6:00AM <br><br> Monday: 6:00AM - 9:00AM <br><br> Monday: 9:00AM - 12:00PM <br><br> Monday: 12:00PM - 3:00PM <br><br> Monday: 3:00PM - 6:00PM <br><br> Monday: 6:00PM - 9:00PM <br><br> Monday: 9:00PM - 12:00AM";				
-		
-		else if (c == 'day2')
-		document.getElementById("message").innerHTML = 
-			"Tuesday: 12:00AM - 3:00AM <br><br> Tuesday: 3:00AM - 6:00AM <br><br> Tuesday: 6:00AM - 9:00AM <br><br> Tuesday: 9:00AM - 12:00PM <br><br> Tuesday: 12:00PM - 3:00PM <br><br> Tuesday: 3:00PM - 6:00PM <br><br> Tuesday: 6:00PM - 9:00PM <br><br> Tuesday: 9:00PM - 12:00AM";
-		
-		else document.getElementById("message").innerHTML = "Work in Progress";
-	}
-</script>
-		<style>
-
-			* {box-sizing: border-box;}
-			ul {list-style-type: none;
+<script>
+			function checkForm(form)
+		  {
+		 
+			if(!form.terms.checked) {
+			  alert("You must accept to proceed");
+			  form.terms.focus();
+			  return false;
 			}
-		
-			.month {
-			  padding: 30px 25px;
-			  width: 40%;
-			  background: #02afe6;
-			  text-align: center;
-			  font-family:"Verdana";
-			  color:fff;
-			}
-
-			.month ul {
-			  margin: 0;
-			  padding: 0;
-			}
-
-			.month ul li {
-			  color: white;
-			  font-size: 20px;
-			  text-transform: uppercase;
-			  letter-spacing: 3px;
-
-			}
-
-			.weekdays {
-			  margin: 0;
-			  padding: 10px 0;
-			  width:40%;
-			  background-color: #ddd;
-			}
-
-			.weekdays li {
-			  display: inline-block;
-			  width: 13.6%;
-			  color: #666;
-			  text-align: center;
-			}
-
-			.days {
-			  padding: 10px 0;
-			  background: #eee;
-			  margin: 0;
-			  width:40%;
-			}
-
-			.days li {
-			  list-style-type: none;
-			  display: inline-block;
-			  width: 13.6%;
-			  text-align: center;
-			  margin-bottom:5px;
-			  font-size:20px;
-			  color: #777;
-			}
-
-			.days li .current {
-			  padding: 5px;
-			  background: #02afe6;
-			  color: white !important
-			}
-			
-			li a:hover {
-		  background-color: #02afe6;
+			return true;
 		  }
 		  
-		li a {
-		  display: block;
-		  text-align: center;
-		  
-		  text-decoration: none; 
-		}
+</script>
+	<style>			
 		
-		input:hover{
-		transform: scale(1.2);
-		}
-		
-		#form{
-			float:right;
-			margin-right:500px;
-		}
-		
-		#foot{
-			background-color:red;
-			color:green;
-			border-radius: 0.2rem;
-		}
-		
-		</style>
+	</style>
 		
 	</head>
 	
 	<body><br>
-<div class="month">      
-		<h1  id="month"> </h1>
-      <span style="font-size:20px">2021</span>
-	<p style="color:white;"; id="demo"></p>
+
+<div class="w3-display-left" style="margin-left:100px;  margin-top:50px">
+<div class="container">
+      <div class="calendar">
+        <div class="month">
+          <i class="fas fa-angle-left prev"></i>
+          <div class="date">
+            <h1></h1>
+            <p></p>
+          </div>
+          <i class="fas fa-angle-right next"></i>
+        </div>
+        <div class="weekdays">
+          <div>Sun</div>
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+        </div>
+        <div class="days"></div>
+      </div>
+  </div>
 </div>
 
-
-<div>  <div id="form">
-	<form method="post" action="timeslot.php" target="_parent">
-	<input type="submit" value="Monday" id="day" style="height:140px; width:100px;">
-	<input type="submit" value="Tuesday" id="tue" style="height:140px; width:100px;">
-	<input type="submit" value="Wednesday" id="wed" style="height:140px; width:100px;">
-	<input type="submit" value="Thursday" id="thur" style="height:140px; width:100px;"> <br> <br>
-	<input type="submit" value="Friday" id="fri" style="height:140px; width:100px;">
-	<input type="submit" value="Saturday" id="sat" style="height:140px; width:100px;">
-	<input type="submit" value="Sunday" id="sun" style="height:140px; width:100px;">
-	</form>
-</div>
-
-<ul class="weekdays">
-  <li>Mo</li>
-  <li>Tu</li>
-  <li>We</li>
-  <li>Th</li>
-  <li>Fr</li>
-  <li>Sa</li>
-  <li>Su</li>
-</ul>
-
-<ul class="days">
-
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("day1")> 1 </a></li> 
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("day2") id="day2">2</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>3</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>4</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>5</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>6</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>7</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>8</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>9</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>10</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>11</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>12</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>13</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>14</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>15</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>16</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>17</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>18</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>19</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>20</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>21</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>22</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>23</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>24</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>25</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>26</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>27</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>28</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>29</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>30</a></li>
-	<li> <a style="padding: 40px 16px;" onclick = changeMessage("")>31</a></li>
+<div class="w3-display-right" style="float:left; margin-top:50px">	
+<?php
+	$apt = $_SESSION['apt'];
+	$phone = $_SESSION['phone'];
 	
-</ul>
-		<script>
-		//Live date
-		var d = new Date();
-		document.getElementById("demo").innerHTML = d;
-		
-		//Live month
-		var monthNames = ["January", "February", "March", "April", "May", "June",
-		"July", "August", "September", "October", "November", "December"
-		];
+	/*echo" 
+	<br><strong><u>Reservations reset on Sundays 11:50PM</u></strong><br>";
+	$current_date = date_default_timezone_set('America/New_York');
+	$current_date = date('H:i:s');
+	$timestamp = strtotime($current_date);
+	$gettime = date("h:i A", $timestamp);
 
-		document.getElementById("month").innerHTML = monthNames[d.getMonth()];
+	if($gettime == "07:35 PM" && date("l")=="Thursday")
+	{
+		$sql = "update timeslots set occupied = false, name = '', apt = NULL, phone = '', comments = '' where occupied = true";  
+		$sql_run = mysqli_query($connection, $sql);
+		echo "Reservations have been refreshed!<br><br>";
+	}*/
+	echo"
+	<form style='float:right;' action='reserveconfirmed.php' method='post'onsubmit='return checkForm(this);'>
+	<label  for='day';><strong>Confirm Day:</strong></label>	<a href='' onclick='popUp()'>Check available time slots</a><br>	
+	<select name='day' id='day'>
+    <option value='mon'>Monday</option>
+    <option value='tue'>Tuesday</option>
+    <option value='wed'>Wednesday</option>
+    <option value='thur'>Thursday</option>
+	<option value='fri'>Friday</option>
+	<option value='sat'>Saturday</option>
+    <option value='sun'>Sunday</option>
+  </select>
+	<br><br>
+	<label  for='name'><strong>Name:</strong></label><br>
+	<input  type='text' id='name' name='name'><br><br>
+	<label  for='apt'><strong>Apartment Number:</strong></label><br>
+	<input  type='text' id='apt' name='apt' value=$apt disabled><br><br>
+	<label  for='phone'><strong>Contact Number:</strong></label><br>
+	<input  type='text' id='phone' name='phone' value=$phone disabled><br><br>
+	
+   <label for='time'><strong>Choose an available time:</strong></label> <br><br>
+  <select name='time' id='time'>
+    <option value='12AM'>12:00 AM - 3:00 AM</option>
+    <option value='3AM'>3:00 AM - 6:00 AM</option>
+    <option value='6AM' id='2a'>6:00 AM - 9:00 AM</option>
+    <option value='9AM' id='time3'>9:00 AM - 12:00 PM</option>
+	<option value='12PM' id='time4'>12:00 PM - 3:00 PM</option>
+	<option value='3PM' id='time5'>3:00 PM - 6:00 PM</option>
+    <option value='6PM' id='time6'>6:00 PM - 9:00 PM</option>
+    <option value='9PM' id='time7'>9:00 PM - 12:00 PM</option>
+  </select>
+  <br><br>
+  	<label for='message'> <strong>Personal Comments:</strong></label> <br>  
+	<textarea id='msg' name='msg' rows='10' cols='50' maxlength='100'> </textarea> <br><br>
+ <p><input type='checkbox' name='terms'> By checking this I understand that I must wear a mask<br>and maintain six feet apart from others at all times.</p>
+  <input type='submit' id='submit' name='submit' value='Submit'>
+	</form>"
+		?>
 		
-
-//----------------------------------------------------------------------------------
-		function newPage()
-		{
-			var x = document.getElementById("form");
-		  if (x.style.display === "none") {
-			x.style.display = "block";
-		  } else {
-			x.style.display = "block";
-		  }
-		}
-
-		document.getElementById("day").onclick = function() {newPage()};
-		
-		// When the user clicks on <div>, open the popup
-		</script>
-		<footer style="margin-left: 800px; margin-bottom: 1px;">
+	
+</div>
+<script type="text/javascript" src="templates/calendar.js"></script>
+<script>
+function popUp() {
+  var myWindow = window.open("available.php", "MsgWindow", "width=900,height=970");
+}
+</script>
+<footer style="margin-left: 800px; margin-top: 900px;">
 		  <p>Author: Thurein, Toki, Justin<br>
 		  <a href="bmccgroupb@gmail.com">BMCCGroupB@gmail.com</a></p>
-		</footer>
+</footer>
 		
 	</body>
 </html>

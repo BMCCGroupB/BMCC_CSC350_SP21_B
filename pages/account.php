@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="styles.css">
-<script type="text/javascript" src="script.js"></script>
+<link rel="stylesheet" href="templates/styles.css">
+<script type="text/javascript" src="templates/script.js"></script>
 <?php include "templates/header.php"?>
 <html>
 	<head>
@@ -14,17 +14,19 @@
 		}
 		
 			function changeMessage(c)
-	{
-		
-		if (c == 'info') 
+		{
+			if (c == 'info') {
 			document.getElementById("message").innerHTML = 
 			"<?php
 			$password = $_SESSION['password'];
+			echo "Name: ".$_SESSION['name']."<br><br>";
 			echo "Apartment: ".$_SESSION['apt']."<br><br>";
-			echo "Email: ".$_SESSION['username']."<br><br>";
+			echo "Contact Number: ".$_SESSION['phone']."<br><br>";
+			echo "Username: ".$_SESSION['username']."<br><br>";
 			echo "Password: <input type='password' value = $password id='myInput' <br><br>";
 			echo "<input type='checkbox' onclick='showPass()'>Show Password";						
-			?> <br><br> <a href='templates/destroy.php'>Sign out</a>";				
+			?>";				
+			}
 			
 			else if (c == 'pass'){
 			document.getElementById("message").innerHTML = 	"<form style='text-align:center;'"+
@@ -37,8 +39,35 @@
 			"<input type='submit' value='Change password' name='change' style='height:30px; width:150px;'></form>";
 			}
 			
-			else document.getElementById("message").innerHTML = "Work in Progress";
-	}
+			else if(c == 'reservation')
+			{
+				document.getElementById("message").innerHTML = "<?php
+				$apt = $_SESSION['apt'];
+				$connection = mysqli_connect("localhost", "root", "", "mydb");	//function call to make a connection to the DBMS 
+				$check = "select *from timeslots where Apartment = '$apt'";
+				$result = mysqli_query($connection, $check);  
+				$row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
+				$count = mysqli_num_rows($result); 	
+				if($count == 1){  
+				$day = $row['Day'];
+				$time = $row['Time'];
+				$name = $row['Name'];
+				$phone = $row['Phone'];
+				$msg = $row['Comments'];
+					echo "You reserved a spot for ".$day." at ".$time."<br>Please be on time, there will be a 3 hour limit for each reservation.<br><br>Registered under: ".$name."<br>Your contact number: ".$phone."<br><br>Personal Comment: ".$msg;
+					
+					echo "<br><br><a href='cancel.php'>Cancel my reservation</a>";
+				}  
+						
+				else {
+					echo "You have not made a reservation";
+					}		
+				?>";
+			}
+			
+			
+
+		}
 	
 	</script>
 		<style>
@@ -111,15 +140,19 @@
 	<div>
 		<h1> My Account </h1>
 	</div>
-	
+	<?php
+		
+	?>
 	<div class="div2">
 		<button class="button" type="button" onclick=changeMessage("info")> Account Information </button>
 		<button class="button" type="button" onclick=changeMessage("pass")> Change Password </button>
 		<button class="button" type="button" onclick=changeMessage("reservation")> View time slot </button>
+		 <br><br>
 	</div>
+	
 		<br>
 	<div>
-	<p id="message"> </p>
+	<p id="message"> </p> <a href='templates/destroy.php'>Sign out</a>
 	</div>
 	<script>
 		function display()

@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="styles.css">
-<script type="text/javascript" src="script.js"></script>
+<link rel="stylesheet" href="templates/styles.css">
+<script type="text/javascript" src="templates/script.js"></script>
 <?php 
 include "templates/header.php";
 ?>
@@ -54,7 +54,7 @@ include "templates/header.php";
 
 
 	<button class="button"
-	type="button" onclick="location.href='Reserve.php'">
+	type="button" onclick="location.href='reserve.php'">
 	Schedule your weekly wash</button>
 	
 

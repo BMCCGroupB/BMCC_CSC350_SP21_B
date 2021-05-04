@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="styles.css">
-<script type="text/javascript" src="script.js"></script>
+<link rel="stylesheet" href="templates/styles.css">
+<script type="text/javascript" src="templates/script.js"></script>
 <?php include "templates/header.php"?>
 <html>
 <head>

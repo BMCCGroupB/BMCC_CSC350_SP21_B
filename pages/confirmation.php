@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="styles.css">
-<script type="text/javascript" src="script.js"></script>
-<?php include "templates/header.php"?>
+<link rel="stylesheet" href="templates/styles.css">
+<script type="text/javascript" src="templates/script.js"></script>
+<?php include "templates/header.php"; include "templates/dbconfig.php";?>
 <html>
  <head>
   <title>PHP Test</title>
@@ -50,67 +50,25 @@
 
 	 <?php 
 	 if(isset($_REQUEST['submit'])) {
-	  $name = $_POST['name'];
-	  $time = $_POST['time'];
-	  $day = $_POST['day'];
-	  $apt = $_POST['apt'];
-	  $msg = $_POST['msg'];
-	  $day = $_POST['day'];
-	  switch($day){
-
-		case 'mon':
-			echo "Reservation for Monday<br>";
-			break;
-		case 'tue':
-			echo "Reservation for Tuesdayy<br>";
-			break;
-		case 'wed':
-			echo "Reservation for Wednesday<br>";
-			break;
-		case 'thur':
-			echo "Reservation for Thursday<br>";
-			break;
-		case 'fri':
-			echo "Reservation for Friday<br>";
-			break;
-		case 'sat':
-			echo "Reservation for Saturday<br>";
-			break;
-		case 'sun':
-			echo "Reservation for Sunday<br>";
-			break;
+		if(isset($_REQUEST['yes']))
+		{ 
+			$apt = $_SESSION['apt'];
+			$check = "select *from timeslots where Apartment = '$apt'";
+			$check_run = mysqli_query($connection, $check);
+			if(mysqli_num_rows($check_run) != 0)
+			{
+				$remove = "update timeslots set Occupied = false, Name = '', Apartment = '', Phone = '', Comments = '' where Apartment = '$apt'";
+				$remove_run = mysqli_query($connection, $remove);
+				echo "Successfully Removed!";
+			}
+			else echo "Unable to delete your reservation";
 		}
 		
-	  echo "<br>Name: ".$name."<br><br>"."Apartment: ".$apt."<br><br>Personal Comments: <br>".$msg."<br><br>";
-	  
-		switch($time){
-
-		case '12AM':
-			echo "Your time slot is reserved from <br> 12:00 AM - 3:00 AM";
-			break;
-		case '3AM':
-			echo "Your time slot is reserved from <br> 3:00 AM - 6:00 AM";
-			break;
-		case '6AM':
-			echo "Your time slot is reserved from <br> 6:00 AM - 9:00 AM";
-			break;
-		case '9AM':
-			echo "Your time slot is reserved from <br> 9:00 AM - 12:00 PM";
-			break;
-		case '12PM':
-			echo "Your time slot is reserved from <br> 12:00 PM - 3:00 PM";
-			break;
-		case '3PM':
-			echo "Your time slot is reserved from <br> 3:00 PM - 6:00 PM";
-			break;
-		case '6PM':
-			echo "Your time slot is reserved from <br> <br> 6:00 PM - 9:00 PM";
-			break;
-		case '9PM':
-			echo "Your time slot is reserved from <br> 9:00 PM - 12:00 AM";
-			break;
-		}
+		else header("Refresh:0; url=account.php");
 	 }
+	 else echo "Failed";
+	// insert into timeslots(date, time, name, apt, phone, occupied, comments) values (
+	// '$day', '$time', '$name', $apt, '$phone', false, '$msg' );
 	 ?> 
 	 	<div id="div2">
 		<button type="button" class="button" onclick="location.href='Reserve.php'">
