@@ -1,6 +1,8 @@
 Project by Thurein, Toki, Justin
 
 To load the website:
-Create a MYSQL DB with localhost, root, no password   with DB mydb2
-Create an account table, with columns Username, Password, Apartment, and Admin
-Fill in the table as desired and log in with that account to the website
+Execute the mysql files in deliverables folder
+Log in with admin account: Admin, Password
+Register a user account
+Sign out
+Login with user account
