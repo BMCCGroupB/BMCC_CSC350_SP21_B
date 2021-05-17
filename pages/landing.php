@@ -1,3 +1,5 @@
+<!--Home page-->
+
 <link rel="stylesheet" href="templates/styles.css">
 <script type="text/javascript" src="templates/script.js"></script>
 <?php 
@@ -6,6 +8,10 @@ include "templates/header.php";
 
 <html>
 	<head>
+	<!--
+	#im3 is for the image specifications
+	.button is the button style 
+	-->
 		<style>
 			.center {
 			  display: block;
@@ -14,6 +20,7 @@ include "templates/header.php";
 			  width: 1800;
 			  height: 790;
 			}
+			
 			#img3{
 				height: 80;
 				vertical-align:middle;
@@ -65,4 +72,3 @@ include "templates/header.php";
 		</footer>
 	</body>
 </html>
-<!--<button onclick="myFunction()">Toggle dark mode</button> -->
