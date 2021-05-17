@@ -1,10 +1,7 @@
+<!--Admin page to check reserved slots-->
 <?php include "templates/dbconfig.php"?>
 <html>
 	<head>
-
-
-	<script>
-	</script>
 		<style>
 		* {
   box-sizing: border-box;
