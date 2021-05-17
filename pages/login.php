@@ -2,11 +2,15 @@
 <script type="text/javascript" src="templates/script.js"></script>
 <html>
 	<head>
+	<!--
+	h1 = style for heading
+	div = style for overall page
+	#user = style for user login box
+	#password = style for password login box
+	#submission = style for login button
+	#label = style for the label attribute
+	-->
 		<style>
-			body{
-				background-repeat: no-repeat;
-				background-size: 1950px 1000px;				
-			}
 			
 			h1{
 				text-align:center;
@@ -25,7 +29,7 @@
 				padding: 1px;
 			}
 
-			#user {				
+			#user {			
 			border-radius: 10px;
 			border: 2px solid black;
 			padding: 15px; 
