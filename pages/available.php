@@ -1,15 +1,13 @@
+<!--Displays all available times-->
+
 <?php include "templates/dbconfig.php"?>
 <html>
 	<head>
-
-
-	<script>
-	</script>
 		<style>
-		* {
+* {
   box-sizing: border-box;
 }
-		.row {
+.row {
   margin-left:-5px;
   margin-right:-5px;
 }
@@ -36,17 +34,14 @@ th, td {
   padding: 16px;
 }
 
-		</style>
-	</head>
-	
-	<body>
-
-
+	</style>
+</head>
+<body>
 	
 <?php
 	echo "<div class='row'>";
 	echo "<div class='column'>";
-	$available1 = "select * from Timeslots where Day='MonDay' and Occupied=false";
+	$available1 = "select * from Timeslots where Day='MonDay' and Occupied=false";	//Check for Monday
 	$available1_run = mysqli_query($connection, $available1);
 	echo "<table>
 	<tr>
@@ -70,7 +65,7 @@ th, td {
 	<th>Day</th>
 	<th>Time</th>
 	</tr>";
-	$available2 = "select * from Timeslots where Day='TuesDay' and occupied=false";
+	$available2 = "select * from Timeslots where Day='TuesDay' and occupied=false";		//Check for Tuesday
 	$available2_run = mysqli_query($connection, $available2);
 	while($row = mysqli_fetch_array($available2_run))
 	{
@@ -89,7 +84,7 @@ th, td {
 	<th>Day</th>
 	<th>Time</th>
 	</tr>";
-	$available2 = "select * from Timeslots where Day='WednesDay' and occupied=false";
+	$available2 = "select * from Timeslots where Day='WednesDay' and occupied=false";		//Check for Wednesday
 	$available2_run = mysqli_query($connection, $available2);
 	while($row = mysqli_fetch_array($available2_run))
 	{
@@ -107,7 +102,7 @@ th, td {
 	<th>Day</th>
 	<th>Time</th>
 	</tr>";
-	$available2 = "select * from Timeslots where Day='ThursDay' and occupied=false";
+	$available2 = "select * from Timeslots where Day='ThursDay' and occupied=false";		//Check for Thursday
 	$available2_run = mysqli_query($connection, $available2);
 	while($row = mysqli_fetch_array($available2_run))
 	{
@@ -125,7 +120,7 @@ th, td {
 	<th>Day</th>
 	<th>Time</th>
 	</tr>";
-	$available2 = "select * from Timeslots where Day='FriDay' and occupied=false";
+	$available2 = "select * from Timeslots where Day='FriDay' and occupied=false";		//Check for Friday
 	$available2_run = mysqli_query($connection, $available2);
 	while($row = mysqli_fetch_array($available2_run))
 	{
@@ -143,7 +138,7 @@ th, td {
 	<th>Day</th>
 	<th>Time</th>
 	</tr>";
-	$available2 = "select * from Timeslots where Day='SaturDay' and occupied=false";
+	$available2 = "select * from Timeslots where Day='SaturDay' and occupied=false";		//Check for Saturday
 	$available2_run = mysqli_query($connection, $available2);
 	while($row = mysqli_fetch_array($available2_run))
 	{
@@ -161,7 +156,7 @@ th, td {
 	<th>Day</th>
 	<th>Time</th>
 	</tr>";
-	$available2 = "select * from Timeslots where Day='SunDay' and occupied=false";
+	$available2 = "select * from Timeslots where Day='SunDay' and occupied=false";		//Check for Sunday
 	$available2_run = mysqli_query($connection, $available2);
 	while($row = mysqli_fetch_array($available2_run))
 	{
@@ -176,6 +171,5 @@ th, td {
 
 ?>
 	 
-	</body>
-
+</body>
 </html>
