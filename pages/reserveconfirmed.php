@@ -6,6 +6,10 @@ include "templates/header.php"; include "templates/dbconfig.php";
 <html>
  <head>
   <title>PHP Test</title>
+  <!-- 
+  div = overall style of page
+  #div2 = alignment and style for button
+  -->
   <style>
 	div{
 		border-radius: 15px;
@@ -48,7 +52,7 @@ include "templates/header.php"; include "templates/dbconfig.php";
  <div>
 	<?php
 	
-	 if(isset($_REQUEST['submit'])) 
+	 if(isset($_REQUEST['submit'])) //Checks for submission
 	 {
 		
 		  $name = $_SESSION['name'];
@@ -59,7 +63,7 @@ include "templates/header.php"; include "templates/dbconfig.php";
 		  $msg = $_POST['msg'];
 
 		  
-		switch($day)
+		switch($day)	//Renames the day variable to selected day
 		{
 			case 'mon':
 				$day = "Monday";
@@ -84,7 +88,7 @@ include "templates/header.php"; include "templates/dbconfig.php";
 				break;
 		}
 
-		switch($time)
+		switch($time)	//Renames time variable to selected time
 		{
 			case '12AM':
 				break;
@@ -104,17 +108,17 @@ include "templates/header.php"; include "templates/dbconfig.php";
 				break;
 		}
 		
-		$check = "select *from timeslots where Day = '$day' and Time = '$time'";
+		$check = "select *from timeslots where Day = '$day' and Time = '$time'";	//Checks database for information
 		$check_run = mysqli_query($connection, $check);
 		$double = "select *from timeslots where Apartment = '$apt'";
 		$double_run = mysqli_query($connection, $double);
-		if(mysqli_num_rows($double_run) != 0)
+		if(mysqli_num_rows($double_run) != 0)	//Checks if account is already reserved
 			{
-				echo "<h1>You already reserved a spot! Please see Account information for your reservation time.</h1>";
+				echo "<h1>You already reserved a spot! Please see Account information for your reservation time.</h1>";	
 			}
 			
 		else{
-			while($row = mysqli_fetch_array($check_run))
+			while($row = mysqli_fetch_array($check_run))	//Checks if slot is occupied
 			{
 				if($row['Occupied'] == 1)
 				{
