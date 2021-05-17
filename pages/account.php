@@ -4,6 +4,7 @@
 <html>
 	<head>
 	<script>
+	//Displays one of these depending on which button is clicked
 		function showPass() {
 		  var x = document.getElementById("myInput");
 		  if (x.type === "password") {
@@ -155,6 +156,7 @@
 	<p id="message"> </p> <a href='templates/destroy.php'>Sign out</a>
 	</div>
 	<script>
+	//Function for displaying nothing until something is clicked
 		function display()
 		{
 			var x = document.getElementById("form");
