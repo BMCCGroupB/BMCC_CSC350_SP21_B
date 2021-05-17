@@ -4,6 +4,11 @@
 <html>
  <head>
   <title>PHP Test</title>
+  <!--
+	div = background box--
+	#div2 = correct alignment of button
+	.button = button style
+  -->
   <style>
 	div{
 		border-radius: 15px;
@@ -27,6 +32,7 @@
 		padding: 1px;		
 	}
 	
+	
 	#div2:hover{
 		transform: scale(1.2);
 	}
@@ -49,7 +55,7 @@
 	<h1>Confirmed!</h1>
 
 	 <?php 
-	 if(isset($_REQUEST['submit'])) {
+	 if(isset($_REQUEST['submit'])) {	//Check for submission
 		if(isset($_REQUEST['yes']))
 		{ 
 			$apt = $_SESSION['apt'];
@@ -57,8 +63,8 @@
 			$check_run = mysqli_query($connection, $check);
 			if(mysqli_num_rows($check_run) != 0)
 			{
-				$remove = "update timeslots set Occupied = false, Name = '', Apartment = NULL, Phone = NULL, Comments = '' where Apartment = '$apt'";
-				$remove_run = mysqli_query($connection, $remove);
+				$remove = "update timeslots set Occupied = false, Name = '', Apartment = NULL, Phone = NULL, Comments = '' where Apartment = '$apt'"; //Updates database
+				$remove_run = mysqli_query($connection, $remove);	//execute the code
 				echo "Successfully Removed!";
 			}
 			else echo "Unable to delete your reservation";
@@ -67,8 +73,7 @@
 		else header("Refresh:0; url=account.php");
 	 }
 	 else echo "Failed";
-	// insert into timeslots(date, time, name, apt, phone, occupied, comments) values (
-	// '$day', '$time', '$name', $apt, '$phone', false, '$msg' );
+
 	 ?> 
 	 	<div id="div2">
 		<button type="button" class="button" onclick="location.href='Reserve.php'">
