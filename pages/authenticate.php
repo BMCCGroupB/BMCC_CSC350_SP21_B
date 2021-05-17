@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	include "templates/dbconfig.php";
+	include "templates/dbconfig.php"; //Connect to database
 ?>
 
 <link rel="stylesheet" href="templates/styles.css">
@@ -22,8 +22,8 @@
 		<?php
 
 				echo "Successfully connected to Database <br>";
-				$username = $_GET['user'];  
-				$password = $_GET['password'];  
+				$username = $_GET['user']; 	 //Retrieve Username
+				$password = $_GET['password'];  	//Retrieve Password
 				$username = stripcslashes($username);  
 				$password = stripcslashes($password);  
 				$username = mysqli_real_escape_string($connection, $username);  
@@ -35,8 +35,10 @@
 				$count = mysqli_num_rows($result); 
 				
 			
-				
+				//If account is found
 				if($count == 1){ 
+				
+					//If account is an admin
 					if($row['Admin']== true){
 						echo "Admin login Successful!";						
 						$_SESSION['username'] = $username;
@@ -46,6 +48,8 @@
 						echo "<br>Redirecting you to admin page";
 						header("Refresh:5; url=admin.php");
 					}
+					
+					//Account is regular User
 					else {
 						echo "Login Successful! ";
 						$_SESSION['username']=$username;
@@ -60,6 +64,8 @@
 						$count2 = mysqli_num_rows($result2);
 						if($count2 == 1) 
 						{
+							
+							//If tenantinformation content isn't filled out
 							if($row2['Name'] == "" && $row2['Phone'] == "" && $row2['Email'] == "")
 							{
 								echo "<br><br>Please fill out the information needed:
@@ -120,7 +126,7 @@
 						}
 					}
 				}  
-						
+				//Account wasn't found	
 				else{
 					echo "Failed to log in <br><br><br> <a href='login.php'>Please sign in again";
 				}		
