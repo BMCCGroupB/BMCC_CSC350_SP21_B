@@ -7,7 +7,8 @@
 	
 	</script>
 		<style>
-			.button {
+			<!--Button style-->
+			.button {		
 				font-size:25px; 
 				color:white; 
 				background-color:#02afe6; 
@@ -20,6 +21,7 @@
 			transform: scale(1.2);
 			}
 			
+			<!--Align the text-->
 			#div2
 			{ 
 				width:250px;
