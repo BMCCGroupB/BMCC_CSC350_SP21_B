@@ -1,5 +1,5 @@
+<!-- Conect to database -->
 <?php
-
 $connection = mysqli_connect("localhost", "root", "", "mydb2");	//function call to make a connection to the DBMS
 	if(!$connection)
 	{
