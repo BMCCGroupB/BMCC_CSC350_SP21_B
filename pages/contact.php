@@ -3,6 +3,15 @@
 <?php include "templates/header.php"?>
 <html>
 <head>
+	<!--
+	div = align the text
+	#email = style for email text box
+	#name = style for name text box
+	#apt = Style for the Apartment text box
+	#submission = Style for the submission text box
+	#submission:hover = Expands upon hovering
+	#msg = Style for message text box
+	-->
 	<style>
 		body{
 			background-repeat: no-repeat;
@@ -25,10 +34,7 @@
 				background-color:#E7EBE0FF;
 				padding: 1px;
 			}
-			
-			div:hover{
-			transform: scale(1.03);
-			}
+		
 			
 			#email {				
 			border-radius: 10px;
