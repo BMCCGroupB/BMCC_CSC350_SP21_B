@@ -7,6 +7,7 @@
 ?>
 <html>
 	<head>
+	<!--Checks if the box is checked or not-->
 <script>
 			function checkForm(form)
 		  {
@@ -55,23 +56,11 @@
 
 <div class="w3-display-right" style="margin-right:150px; margin-top:50px">	
 <?php
+	//Displays the reservation form
 	$apt = $_SESSION['apt'];
 	$phone = $_SESSION['phone'];
 	$name = $_SESSION['name'];
-	
-	/*echo" 
-	<br><strong><u>Reservations reset on Sundays 11:50PM</u></strong><br>";
-	$current_date = date_default_timezone_set('America/New_York');
-	$current_date = date('H:i:s');
-	$timestamp = strtotime($current_date);
-	$gettime = date("h:i A", $timestamp);
 
-	if($gettime == "07:35 PM" && date("l")=="Thursday")
-	{
-		$sql = "update timeslots set occupied = false, name = '', apt = NULL, phone = '', comments = '' where occupied = true";  
-		$sql_run = mysqli_query($connection, $sql);
-		echo "Reservations have been refreshed!<br><br>";
-	}*/
 	echo"
 	<form style='float:right;' action='reserveconfirmed.php' method='post'onsubmit='return checkForm(this);'>
 	<label  for='day';><strong>Confirm Day:</strong></label>	<a href='' onclick='popUp()'>Check available time slots</a><br>	
@@ -114,6 +103,7 @@
 	
 </div>
 <script type="text/javascript" src="templates/calendar.js"></script>
+<!--Opens free slots in a pop up window-->
 <script>
 function popUp() {
   var myWindow = window.open("available.php", "MsgWindow", "width=900,height=970");
