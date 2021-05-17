@@ -7,6 +7,7 @@
 <html>
 	<head>
 	<script>
+	//Depending on which button is clicked, it will display the content for that
 		function showPass() {
 		  var x = document.getElementById("myInput");
 		  if (x.type === "password") {
@@ -18,7 +19,7 @@
 		
 		function changeMessage(c)
 		{
-			if (c == 'register') 
+			if (c == 'register') //Register a new account form
 			{
 			document.getElementById("message").innerHTML = 	"<form "+
 			"action='changeinfo.php'>"+	
@@ -34,7 +35,7 @@
 			"<input type='submit' value='Register account' name='admincreate' style='height:30px; width:150px;'></form>"		
 			}
 			
-			else if (c == 'delete')
+			else if (c == 'delete')	//Delete an account form
 			{			
 				document.getElementById("message").innerHTML = 	"<form "+
 			"action='changeinfo.php'>"+	
@@ -43,7 +44,7 @@
 			"<input type='submit' value='Delete account' name='admindelete' style='height:30px; width:150px;'></form>";
 			}	
 			
-			else if (c == 'reset')
+			else if (c == 'reset')	//Reset a password for an account form
 			{			
 				document.getElementById("message").innerHTML = 	"<form "+
 			"action='changeinfo.php'>"+	
@@ -57,7 +58,7 @@
 			}	
 			
 			
-			else if (c == 'removereservation')
+			else if (c == 'removereservation')	//Remove a reservation form
 			{			
 			document.getElementById("message").innerHTML = 	"<form "+
 			"action='changeinfo.php'>"+	
@@ -68,7 +69,7 @@
 			"<input type='submit' value='Remove reservation' name='reservationdelete' style='height:30px; width:150px;'></form>";
 			}	
 			
-			else if (c == 'view')
+			else if (c == 'view')	//View reservations or accounts form
 			{			
 			//document.getElementById("message").innerHTML = "<strong><a href='' onclick='popUp()' name='reserved'>Reserved</a></strong> &nbsp&nbsp&nbsp<strong> <a href='' onclick='popUp() name='accounts'>Accounts</a></strong>"
 			document.getElementById("message").innerHTML = 	"<form action='reserved.php' method='post'>"+	
@@ -77,7 +78,7 @@
 			"<input type='submit' value='Check' name='check' style='height:30px; width:150px;'></form>";
 			}	
 			
-			else if (c == 'pass') {
+			else if (c == 'pass') {	//Change admin password form
 
 			document.getElementById("message").innerHTML = 	"<form style='text-align:center;'"+
 			"action='changeinfo.php'>"+	
@@ -108,7 +109,7 @@
 			}
 
 			
-			.button {
+			.button {	<!--Button style displayed on admin page-->
 				font-size:25px; 
 				color:white; 
 				background-color:#02afe6; 
@@ -117,6 +118,7 @@
 				opacity:0.9;
 			}
 			
+			<!--Hover over button so button expands-->
 			.button:hover{
 			transform: scale(1.1);
 			}
