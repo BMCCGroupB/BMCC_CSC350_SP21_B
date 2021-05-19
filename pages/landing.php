@@ -48,7 +48,7 @@ include "templates/header.php";
 
 
 	<div id="img3">
-		<img src="../images/blue2.jpg" alt="alt-text" class="center"/>
+		<img src="images/blue2.jpg" alt="alt-text" class="center"/>
 		
 	</div>
 	<span>
