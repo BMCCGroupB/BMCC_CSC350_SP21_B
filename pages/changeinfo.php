@@ -83,7 +83,7 @@ include "templates/dbconfig.php";
 				$reserveDelete = "update timeslots set Name='', Apartment = NULL, Phone = NULL, Occupied = false, Comments ='' where Apartment = '$apt' AND Name='$name'";
 				$reserveDelete_run =  mysqli_query($connection, $reserveDelete);
 				header("Refresh:3; url=admin.php");
-				die("Successfully removed reservation for ".$name." in apartment ".$apartment);
+				die("Successfully removed reservation for ".$name." in apartment ".$apt);
 			}
 			else if($count != 1){
 				header("Refresh:3; url=admin.php");
