@@ -29,7 +29,7 @@
 	  <li><a style="margin-top:30; " href="reserve.php">Reserve&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 	  <li><a style="margin-top:30; " href="contact.php">Contact us&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 	  <li>	<label class="switch">
-	  <li id=li2><a style="margin-top:30; " href="account.php"><img src="../images/account2.png" style="height:30;"><br><strong>Account</strong></a></li>
+	  <li id=li2><a style="margin-top:30; " href="account.php"><img src="images/account2.png" style="height:30;"><br><strong>Account</strong></a></li>
 		</ul>
 		
 		
