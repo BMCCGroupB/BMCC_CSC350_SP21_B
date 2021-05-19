@@ -10,11 +10,12 @@ create table accounts (
 
 
 create table tenantinformation(
-    Name varchar(40),
-    Apartment varchar(3),
-    Phone varchar(12),
+    id MEDIUMINT NOT NULL AUTO_INCREMENT, 
+    Name varchar(40), 
+    Apartment varchar(3), 
+    Phone varchar(12), 
     Email varchar(50),
-    primary key(`Name`, `Phone`),
+    primary key(id),
     foreign key(`Apartment`) references accounts(`Apartment`)
 );
 
