@@ -28,6 +28,5 @@ create table timeslots(
     Phone varchar(12),
     Comments varchar(100),
     Occupied boolean,
-    foreign key(`Apartment`) references accounts(`Apartment`),
-    foreign key(`Name`,`Phone`) references tenantinformation(`Name`,`Phone`)
+    foreign key(`Apartment`) references accounts(`Apartment`)
 );
