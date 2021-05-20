@@ -3,9 +3,16 @@ insert into accounts (Apartment, Username, Password, Admin) values (
 	"000",
 	"Admin", /*Admin username*/
 	"Password", /*Admin password*/
-    true /*Admin privledge - True = yes, False = no */
+    	true /*Admin privledge - True = yes, False = no */
 );
 
+/* For User Account */
+insert into accounts (Apartment, Username, Password, Admin) values (
+	"1A",
+	"user", 
+	"password",
+    	false 
+);
 
 /*   For timeslots table   */
 insert into timeslots(Day, Time, Name, Apartment, Phone, Comments, Occupied) values (
