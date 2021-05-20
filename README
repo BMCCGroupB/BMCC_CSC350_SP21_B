@@ -2,7 +2,5 @@ Project by Thurein, Toki, Justin
 
 To load the website:
 Execute the mysql files in deliverables folder
-Log in with admin account: Admin, Password
-Register a user account
-Sign out
-Login with user account
+To test admin account use info: Admin, Password
+To test user account use info: user, password 
