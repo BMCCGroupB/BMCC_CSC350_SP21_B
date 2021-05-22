@@ -42,7 +42,7 @@
 					$_SESSION['password'] = $password;
 					$apt = $row['Apartment'];
 					$_SESSION['apt'] = $apt;
-					echo "<br>Redirecting you to admin page";
+					echo "<br>Redirecting you to <a href='admin.php'>admin page</a>";
 					header("Refresh:5; url=admin.php");
 				}
 				
