@@ -14,6 +14,13 @@ insert into accounts (Apartment, Username, Password, Admin) values (
     	false 
 );
 
+insert into tenantinformation(Name, Apartment, Phone, Email) values (
+	"",
+   	"1A",
+    	"",
+    	""
+);
+
 /*   For timeslots table   */
 insert into timeslots(Day, Time, Name, Apartment, Phone, Comments, Occupied) values (
 "Monday", "12AM", "", NULL, NULL, "",false
