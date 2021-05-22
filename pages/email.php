@@ -1,4 +1,5 @@
 <?php 
+	 header("Refresh:3; url=landing.php");
 if (isset($_POST['submission'])) {
   $name = $_POST['name'];
   $email = $_POST['email'];
