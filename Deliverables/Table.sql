@@ -1,8 +1,8 @@
 /*   For Admin Account    */
 insert into accounts (Apartment, Username, Password, Admin) values (
 	"000",
-	"Admin", /*Admin username*/
-	"Password", /*Admin password*/
+	"admin", /*Admin username*/
+	"password", /*Admin password*/
     	true /*Admin privledge - True = yes, False = no */
 );
 
