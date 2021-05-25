@@ -29,8 +29,7 @@
 	
 	<body><br>
 
-<div class="w3-display-left" style="margin-left:100px;  margin-top:50px">
-<div class="container">
+<div style="margin-left:30%;  margin-top:-5%; color:white">
       <div class="calendar">
         <div class="month">
           <i class="fas fa-angle-left prev"></i>
@@ -52,9 +51,9 @@
         <div class="days"></div>
       </div>
   </div>
-</div>
 
-<div class="w3-display-right" style="margin-right:150px; margin-top:50px">	
+<br><br><h1 style="text-align:center">Reserve Now </h1>
+<div style="margin-right:35%; margin-top:1%">	
 <?php
 	//Displays the reservation form
 	$apt = $_SESSION['apt'];
